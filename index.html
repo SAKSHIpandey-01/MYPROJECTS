@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Chapter Summarizer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Book Chapter Summarizer</h1>
+        <form action="/" method="POST" enctype="multipart/form-data">
+            <label for="file">Upload a .txt or .pdf file:</label>
+            <input type="file" name="file" id="file" accept=".txt,.pdf" required>
+            <button type="submit">Summarize</button>
+        </form>
+
+        {% if summary %}
+        <div class="summary">
+            <h2>Summary</h2>
+            <div class="summary-content">
+                {{ summary }}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
